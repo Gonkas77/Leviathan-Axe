@@ -1,30 +1,31 @@
 package me.gonkas.registry;
 
-import me.gonkas.TutorialMod;
+import me.gonkas.LeviathanAxe;
+import me.gonkas.items.FrozenFlameMaterial;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ItemRegistry {
 
-    public static final Item RUBY = registerItem("ruby", new Item(new FabricItemSettings()));
+    public static final ToolItem LEVIATHANAXE = (ToolItem) registerItem(
+            "leviathan_axe", new AxeItem(FrozenFlameMaterial.INSTANCE, 15f, -3f, new FabricItemSettings()));
 
-    private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
-        entries.add(RUBY);
+    public static void registerModItems() {
+        LeviathanAxe.LOGGER.info("Registering Mod Items for " + LeviathanAxe.MODID);
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ItemRegistry::addItemsToCombatItemGroup);
     }
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(TutorialMod.MODID, name), item);
+        return Registry.register(Registries.ITEM, new Identifier(LeviathanAxe.MODID, name), item);
     }
 
-    public static void registerModItems() {
-        TutorialMod.LOGGER.info("Registering Mod Items for " + TutorialMod.MODID);
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ItemRegistry::addItemsToIngredientItemGroup);
+    private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
+        entries.add(LEVIATHANAXE);
     }
 }

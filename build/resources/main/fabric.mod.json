@@ -1,32 +1,31 @@
 {
 	"schemaVersion": 1,
-	"id": "tutorial-mod",
+	"id": "leviathanaxe",
 	"version": "0.1.0-beta",
-	"name": "Tutorial Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Leviathan Axe",
+	"description": "The ultimate weapon crafted by two experienced dwarves, wielded by a War God.",
 	"authors": [
-		"Me!"
+		"Gonkas"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Gonkas77/Leviathan-Axe"
 	},
 	"license": "MIT",
 	"icon": "assets/tutorial-mod/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"me.gonkas.TutorialMod"
+			"me.gonkas.LeviathanAxe"
 		],
 		"client": [
-			"me.gonkas.TutorialModClient"
+			"me.gonkas.LeviathanAxeClient"
 		],
 		"fabric-datagen": [
-			"me.gonkas.TutorialModDataGenerator"
+			"me.gonkas.LeviathanAxeDataGenerator"
 		]
 	},
 	"mixins": [
-		"tutorial-mod.mixins.json"
+		"leviathanaxe.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.6",
