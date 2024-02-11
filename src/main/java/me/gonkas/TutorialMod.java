@@ -1,5 +1,6 @@
 package me.gonkas;
 
+import me.gonkas.registry.ItemRegistry;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -14,5 +15,6 @@ public class TutorialMod implements ModInitializer {
 	public void onInitialize() {
 
 		LOGGER.info("Hello Fabric world!");
+		ItemRegistry.registerModItems();
 	}
 }
